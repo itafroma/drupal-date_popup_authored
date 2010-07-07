@@ -1,0 +1,10 @@
+$Id$
+Date Popup Authored Module 6.x
+
+Date Popup Authored 6.x-1.x
+---------------------------
+#847820 by amorfati: Disable the authored field's description
+
+Date Popup Authored 6.x-1.0-beta1
+---------------------------------
+Initial release.
