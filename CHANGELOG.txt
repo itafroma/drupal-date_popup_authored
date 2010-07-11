@@ -1,0 +1,11 @@
+$Id$
+Date Popup Authored Module 6.x
+
+Date Popup Authored 6.x-1.0-beta2
+---------------------------
+#847820 by amorfati: Disable the authored field's description
+#847854 by amorfati: Timezone handling is poor to non-existent.
+
+Date Popup Authored 6.x-1.0-beta1
+---------------------------------
+Initial release.

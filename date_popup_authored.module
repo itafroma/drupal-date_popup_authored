@@ -28,5 +28,24 @@ function date_popup_authored_form_alter(&$form, $form_state, $form_id) {
   if (strstr($form_id, '_node_form') !== FALSE) {
     $form['author']['date']['#type'] = 'date_popup';
     unset($form['author']['date']['#maxlength']);
+    unset($form['author']['date']['#description']);
+    
+    // We need to modify date popup's data during submit
+    // @see http://drupal.org/node/847854
+    $form['#submit'][] = 'date_popup_authored_node_form_submit';
   }
+}
+
+/**
+ * Submits the node data with the proper post date.
+ *
+ * @see http://drupal.org/node/847854
+ */
+function date_popup_authored_node_form_submit($form, &$form_state) {
+
+  // Determine user's timezone and convert the date to the authored field format.
+  $timezone = date_default_timezone_name();
+  $time     = date_make_date($form_state['values']['date'], $timezone, DATE_DATETIME);
+
+  $form_state['values']['date'] = date_format_date($time, 'custom', 'Y-m-d H:i:s O');
 }
