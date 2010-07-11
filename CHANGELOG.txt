@@ -1,6 +1,10 @@
 $Id$
 Date Popup Authored Module 6.x
 
+Date Popup Authored 6.x-1.x
+---------------------------
+by amorfati: .cvsignore should not be in Drupal repository
+
 Date Popup Authored 6.x-1.0-beta2
 ---------------------------
 #847820 by amorfati: Disable the authored field's description
