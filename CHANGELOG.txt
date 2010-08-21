@@ -3,6 +3,7 @@ Date Popup Authored Module 6.x
 
 Date Popup Authored 6.x-1.x
 ---------------------------
+#889018 by amorfati: Provide the ability to select the year range for the datepicker
 #832000 by amorfati: Provide the ability to select which date format Date Popup Authored uses
 by amorfati: .cvsignore should not be in Drupal repository
 
