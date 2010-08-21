@@ -1,7 +1,7 @@
 $Id$
 Date Popup Authored Module 6.x
 
-Date Popup Authored 6.x-1.x
+Date Popup Authored 6.x-1.0-beta3
 ---------------------------
 #889446 by amorfati: Provide the ability to enable Date Popup Authored on a per-content type basis
 #889018 by amorfati: Provide the ability to select the year range for the datepicker
