@@ -1,6 +1,10 @@
 $Id$
 Date Popup Authored Module 6.x
 
+Date Popup Authored 6.x-1.0
+---------------------------
+Final 1.0 release.
+
 Date Popup Authored 6.x-1.0-beta3
 ---------------------------
 #889446 by amorfati: Provide the ability to enable Date Popup Authored on a per-content type basis
