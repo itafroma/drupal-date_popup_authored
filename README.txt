@@ -26,12 +26,19 @@ REQUIREMENTS
 ------------
 
 - Drupal 6.x
-- date_popup, part of the date module (http://drupal.org/project/date); 6.x-2.x branch.
+- date_popup, part of the date module [1]; 6.x-2.x branch.
+
+[1] http://drupal.org/project/date
 
 INSTALLATION
 ------------
 
-Install as usual, see http://drupal.org/node/70151 for further information.
+Install as usual, see the handbook page on installing contributed modules [1]
+for further information.
+
+To settings for datepicker can be found by editing each content type.
+
+[1] http://drupal.org/node/70151
 
 CONTACT
 -------
@@ -42,8 +49,13 @@ Current maintainer:
 ACKNOWLEDGEMENTS
 ----------------
 
-This module is merely a packaging of the hack found in issue #417942 
-(http://drupal.org/node/471942) for those who don't like to hack modules.
+Date Popup Authored was inspired by the hacks provided by brice [1] and
+Rob Loach [2] in issue #471942 [3]. It contains additional fixes to account for
+problems found in their solution as well as new configuration options.
+
+[1] http://drupal.org/user/446296
+[2] http://drupal.org/user/61114
+[3] http://drupal.org/node/471942
 
 MORE INFORMATION
 ----------------

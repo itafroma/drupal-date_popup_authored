@@ -25,14 +25,63 @@ function date_popup_authored_help($section) {
  * Implementation of hook_form_alter().
  */
 function date_popup_authored_form_alter(&$form, $form_state, $form_id) {
-  if (strstr($form_id, '_node_form') !== FALSE) {
+  if (strstr($form_id, '_node_form') !== FALSE  && variable_get('date_popup_authored_enabled_' . $form['type']['#value'], 1)) {
     $form['author']['date']['#type'] = 'date_popup';
+
+    // Set options specific to date_popup.
+    $year_range = variable_get('date_popup_authored_year_range_' . $form['type']['#value'], 3);
+    $form['author']['date']['#date_year_range'] = '-' . $year_range . ':+' . $year_range;
+    $form['author']['date']['#date_format'] = variable_get('date_popup_authored_format_' . $form['type']['#value'], 'm/d/Y - H:i');
+
+    // Unset options that are not relevant to date_popup
     unset($form['author']['date']['#maxlength']);
     unset($form['author']['date']['#description']);
     
     // We need to modify date popup's data during submit
     // @see http://drupal.org/node/847854
     $form['#submit'][] = 'date_popup_authored_node_form_submit';
+  }
+  elseif ($form_id == 'node_type_form' && isset($form['identity']['type'])) {
+    $form['date_popup_authored'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Date Popup Authored settings'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['date_popup_authored']['date_popup_authored_enabled'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Enable date picker for authored on date.'),
+      '#default_value' => variable_get('date_popup_authored_enabled_' . $form['#node_type']->type, 1),
+    );
+
+    // Generate formats select menu
+    $options = array();
+    $date_formats = date_get_formats('', TRUE);
+
+    foreach ($date_formats as $type => $format_info) {
+      $options[ucwords($type) . ' date format']= array();
+
+      foreach (array_keys($format_info) as $format) {
+        $options[ucwords($type) . ' date format'][$format] = date_format_date(date_now(), 'custom', $format);
+      }
+    }
+
+    $form['date_popup_authored']['date_popup_authored_format'] = array(
+      '#type' => 'select',
+      '#title' => t('Date format'),
+      '#description' => t('Custom date formats can be added on the <a href="@url">date and time formats page</a>.', array('@url' => url('admin/settings/date-time/formats'))),
+      '#default_value' => variable_get('date_popup_authored_format_' . $form['#node_type']->type, 'm/d/Y - H:i'),
+      '#options' => $options,
+    );
+    $form['date_popup_authored']['date_popup_authored_year_range'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Year range'),
+      '#description' => t('The range of years to provide to the user. Default is &#x00B1;3 years, i.e. 2007-2013'),
+      '#default_value' => variable_get('date_popup_authored_year_range_' . $form['#node_type']->type, 3),
+      '#size' => 3,
+      '#field_prefix' => '&#x00B1;',
+      '#field_suffix' => 'years',
+    );
   }
 }
 
