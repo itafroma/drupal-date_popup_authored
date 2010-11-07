@@ -1,22 +1,6 @@
 $Id$
-Date Popup Authored Module 6.x
+Date Popup Authored Module 7.x
 
-Date Popup Authored 6.x-1.0
----------------------------
-Final 1.0 release.
-
-Date Popup Authored 6.x-1.0-beta3
----------------------------
-#889446 by amorfati: Provide the ability to enable Date Popup Authored on a per-content type basis
-#889018 by amorfati: Provide the ability to select the year range for the datepicker
-#832000 by amorfati: Provide the ability to select which date format Date Popup Authored uses
-by amorfati: .cvsignore should not be in Drupal repository
-
-Date Popup Authored 6.x-1.0-beta2
----------------------------
-#847820 by amorfati: Disable the authored field's description
-#847854 by amorfati: Timezone handling is poor to non-existent.
-
-Date Popup Authored 6.x-1.0-beta1
----------------------------------
-Initial release.
+Date Popup Authored 7.x-1.0-alpha1
+----------------------------------
+Initial unstable release of the Drupal 7 port.
