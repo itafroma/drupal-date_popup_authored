@@ -115,9 +115,12 @@ function date_popup_authored_form_alter(&$form, $form_state, $form_id) {
   if (strstr($form_id, '_node_form') !== FALSE  && variable_get('date_popup_authored_enabled_' . $form['type']['#value'], 1)) {
     $form['author']['date']['#type'] = 'date_popup';
 
-    // Rewrite default value to conform to Date Popup's expected format
-    $date = DateObject::createFromFormat('Y-m-d H:i:s O', $form['author']['date']['#default_value']);
-    $form['author']['date']['#default_value'] = $date->format('Y-m-d h:m:s');
+    // If there is a date already available, rewrite it to conform to
+    // Date Popup's expected format.
+    if (!empty($form['author']['date']['#default_value'])) {
+      $date = DateObject::createFromFormat('Y-m-d H:i:s O', $form['author']['date']['#default_value']);
+      $form['author']['date']['#default_value'] = $date->format('Y-m-d h:m:s');
+    }
 
     // Set options specific to date_popup.
     $year_range = variable_get('date_popup_authored_year_range_' . $form['type']['#value'], 3);
