@@ -1,6 +1,10 @@
 $Id$
 Date Popup Authored Module 7.x
 
+Date Popup Authored 7.x-1.1-alpha3
+----------------------------------
+#970622 by Mark Trapp: Saving a node with Date Popup Authored enabled will result in published time drift
+
 Date Popup Authored 7.x-1.1-alpha2
 ----------------------------------
 #970406 by Mark Trapp: Creating a new node with Date Popup Authored enabled results in a White Screen of Death
