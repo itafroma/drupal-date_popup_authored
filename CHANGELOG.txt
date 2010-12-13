@@ -3,6 +3,7 @@ Date Popup Authored Module 7.x
 
 Date Popup Authored 7.x-1.x-dev
 -------------------------------
+#995934 by Mark Trapp: Date Popup Authored needs tests
 #995060 by pillarsdotnet: Date Popup Authored assumes date is a DateObject, shouldn't
 
 Date Popup Authored 7.x-1.1-alpha3
