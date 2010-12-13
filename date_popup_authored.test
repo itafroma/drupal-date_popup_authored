@@ -20,7 +20,7 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
       'group' => 'Date Popup Authored',
     );
   }
-  
+
   function setUp() {
     // Enable the module.
     DrupalWebTestCase::setUp('date_popup_authored');
@@ -32,7 +32,7 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
 
   /**
    * Check changing node authored on fields.
-   */  
+   */
   function testPageAuthoredOnEdit() {
     $this->drupalLogin($this->admin_user);
 
@@ -54,7 +54,7 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
     $this->checkAuthoredOnWithFormat('m/d/Y - H:i:s', $node);
     $this->checkAuthoredOnWithFormat('d M Y - g:i A', $node);
   }
-  
+
   /**
    * Check to see if Date Popup Authored keeps the Authored On field intact.
    *
@@ -62,12 +62,15 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
    * format has both a date and time component, it creates one textfield for the
    * date and one for the time.
    *
-   * Rather than reimplementing that logic, this will "fake" creating a date
-   * popup element using the node's current values and an arbitrary date format.
+   * Because of this, the node date needs to be split into date and time parts
+   * so it can be compared with the date popup on the node submission form.
    *
    * @param $format
+   *  The date format to test.
    * @param $node
-   * @param 
+   *  The node object to test the date format with.
+   * @param $timezone
+   *  Optionally, a timezone to test with.
    */
   function checkAuthoredOnWithFormat($format, $node, $timezone = '') {
     debug('Format: ' . $format);
@@ -78,7 +81,7 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
     $granularity = date_format_order($format);
     $date_format = date_limit_format($format, array_intersect($granularity, array('month', 'day', 'year')));
     $time_format = date_popup_format_to_popup_time(date_limit_format($format, array_intersect($granularity, array('hour', 'minute', 'second'))));
-    
+
     // Generate a DateObject object for the node date.
     $node_date = DateObject::createFromFormat('Y-m-d H:i:s O', $node->date, $timezone);
     debug($node_date->format($date_format), 'Node date');
@@ -102,7 +105,7 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
         $this->assertIdentical($node_date->format($time_format), (string) $element['value'], 'The node date and submission form have identical times.');
       }
     }
-    
+
     // Reset format back to default
     variable_set('date_popup_authored_format_page', $format);
   }
