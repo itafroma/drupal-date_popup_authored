@@ -29,7 +29,7 @@ To submit bug reports and feature suggestions, or to track changes:
 REQUIREMENTS
 ------------
 
-- Drupal 7.0 RC 2 or later
+- Drupal 7.0 RC 4 or later
 - The latest development copy of Date Popup, part of the Date module [1]
 
 [1] http://drupal.org/project/date
