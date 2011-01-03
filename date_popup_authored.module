@@ -118,7 +118,7 @@ function date_popup_authored_form_alter(&$form, $form_state, $form_id) {
     // If there is a date already available, rewrite it to conform to
     // Date Popup's expected format.
     if (!empty($form['author']['date']['#default_value'])) {
-      $date = DateObject::createFromFormat('Y-m-d H:i:s O', $form['author']['date']['#default_value']);
+      $date = new DateObject($form['author']['date']['#default_value'], NULL, 'Y-m-d H:i:s O');
       $form['author']['date']['#default_value'] = $date->format('Y-m-d H:i:s');
     }
 
