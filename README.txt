@@ -16,9 +16,9 @@ INTRODUCTION
 Date Popup Authored provides a jQuery UI datepicker for the "Authored on"
 date field found on node submission forms.
 
-Please note that the Drupal 7 branch is experimental and relies on non-stable
-code. A stable version of Date Popup Authored will be released in conjunction
-with the stable releases of both Drupal 7 and Date for Drupal 7.
+Note that the Drupal 7 branch is in beta while Date remains unstable.
+A full version of Date Popup Authored will be released in conjunction
+with the stable release of Date for Drupal 7.
 
 For a full description of the module, visit the project page:
   http://drupal.org/project/date_popup_authored
@@ -29,8 +29,9 @@ To submit bug reports and feature suggestions, or to track changes:
 REQUIREMENTS
 ------------
 
-- Drupal 7.0 RC 4 or later
-- The latest development copy of Date Popup, part of the Date module [1]
+- Drupal 7
+- Date [1] 7.x-1.0-alpha2 or later
+- Date Popup, part of the Date module
 
 [1] http://drupal.org/project/date
 

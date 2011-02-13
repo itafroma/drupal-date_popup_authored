@@ -25,15 +25,19 @@ function date_popup_authored_help($section) {
 
       $readme .= '<h2>' . t('Requirements') . '</h2>';
       $readme .= '<ul>';
-      $readme .= '<li>' . t('The latest development copy of Drupal 7.x') . '</li>';
-      $readme .= '<li>' . t('The latest development copy of <em>Date popup</em>, part of the <a href="@url">Date module</a>.',
+      $readme .= '<li>' . t('Drupal 7') . '</li>';
+      $readme .= '<li>' . t('<a href="@url">Date</a> 7.x-1.0-alpha2 or later',
         array(
-          '@url' => url('http://drupal.org/project/date'),
+          '@url' => url('http://http://drupal.org/project/date'),
         )) . '</li>';
+      $readme .= '<li>' . t('<em>Date popup</em>, part of the Date module') . '</li>';
       $readme .= '</ul>';
 
       $readme .= '<h2>' . t('Installation and Configuration') . '</h2>';
-      $readme .= '<p>' . t('Install as usual. See the handbook page on installing contributed modules for further information.') . '</p>';
+      $readme .= '<p>' . t('Install as usual. See the <a href="@url">handbook page on installing contributed modules</a> for further information.',
+        array(
+          '@url' => url('http://drupal.org/getting-started/install-contrib/modules'),
+        )) . '</p>';
       $readme .= '<p>' . t('You can change the behavior of the datepicker by going to <a href="@url">the settings page for each content type</a>.',
         array(
           '@url' => url('admin/structure/types'),
