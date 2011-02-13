@@ -12,10 +12,49 @@
 function date_popup_authored_help($section) {
   switch ($section) {
     case 'admin/help#date_popup_authored':
-      // Return a line-break version of the module README
-      $readme = file_get_contents(dirname(__FILE__) . '/README.txt');
-      $readme = filter_filter('process', 2, NULL, $readme);
-      $readme = filter_filter('process', 1, NULL, $readme);
+      $readme = '<p>' . t('Date Popup Authored provides a jQuery UI datepicker for the "Authored on" date field found on node forms.') . '</p>';
+      $readme .= '<p>' . t('For a full description of the module, visit <a href="@url">the project page</a>.',
+        array(
+          '@url' => url('http://drupal.org/project/date_popup_authored'),
+        )) . '</p>';
+      $readme .= '<p>' . t('To submit bug reports and feature suggestions, or to track changes, visit <a href="@url">the issue queue</a>.',
+        array(
+          '@url' => url('http://drupal.org/project/issues/date_popup_authored'),
+        )) . '</p>';
+
+      $readme .= '<h2>' . t('Requirements') . '</h2>';
+      $readme .= '<ul>';
+      $readme .= '<li>' . t('Drupal 6') . '</li>';
+      $readme .= '<li>' . t('<a href="@url">Date</a> 2',
+        array(
+          '@url' => url('http://http://drupal.org/project/date'),
+        )) . '</li>';
+      $readme .= '<li>' . t('<em>Date popup</em>, part of the Date module') . '</li>';
+      $readme .= '</ul>';
+
+      $readme .= '<h2>' . t('Installation and Configuration') . '</h2>';
+      $readme .= '<p>' . t('Install as usual. See the <a href="@url">handbook page on installing contributed modules</a> for further information.',
+        array(
+          '@url' => url('http://drupal.org/getting-started/install-contrib/modules'),
+        )) . '</p>';
+      $readme .= '<p>' . t('You can change the behavior of the datepicker by going to <a href="@url">the settings page for each content type</a>.',
+        array(
+          '@url' => url('admin/structure/types'),
+        )) . '</p>';
+
+      $readme .= '<h2>' . t('Contact') . '</h2>';
+      $readme .= '<p>' . t('The current maintainer is Mark Trapp. You can contact him through his <a href="@url">Drupal user page</a>.',
+        array(
+          '@url' => url('http://drupal.org/user/212019'),
+        )) . '</p>';
+
+      $readme .= '<h2>' . t('Acknowledgements') . '</h2>';
+      $readme .= '<p> ' . t('Date Popup Authored was inspired by the hacks provided by <a href="@url-brice">brice</a> and <a href="@url-robloach">Rob Loach</a> in <a href="@url-issue">issue #471942</a>. It contains additional fixes to account for problems found in their solution as well as new configuration options.',
+        array(
+          '@url-brice' => url('http://drupal.org/user/446296'),
+          '@url-robloach' => url('http://drupal.org/user/61114'),
+          '@url-issue' => url('http://drupal.org/node/471942'),
+        )) . '</p>';
 
       return $readme;
   }
