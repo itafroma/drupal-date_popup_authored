@@ -36,7 +36,7 @@ function date_popup_authored_help($section) {
       $readme .= '<h2>' . t('Installation and Configuration') . '</h2>';
       $readme .= '<p>' . t('Install as usual. See the <a href="@url">handbook page on installing contributed modules</a> for further information.',
         array(
-          '@url' => url('http://drupal.org/getting-started/install-contrib/modules'),
+          '@url' => url('http://drupal.org/node/895232'),
         )) . '</p>';
       $readme .= '<p>' . t('You can change the behavior of the datepicker by going to <a href="@url">the settings page for each content type</a>.',
         array(

@@ -44,7 +44,7 @@ for further information.
 You can change the behavior of the datepicker by going to the settings page
 for each content type.
 
-[1] http://drupal.org/node/70151
+[1] http://drupal.org/node/895232
 
 CONTACT
 -------
