@@ -1,4 +1,3 @@
-$Id$
 Date Popup Authored Module 6.x
 
 Date Popup Authored 6.x-1.x-dev
