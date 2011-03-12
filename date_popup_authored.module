@@ -63,7 +63,13 @@ function date_popup_authored_help($section) {
  * Implementation of hook_form_alter().
  */
 function date_popup_authored_form_alter(&$form, $form_state, $form_id) {
-  if (strstr($form_id, '_node_form') !== FALSE  && variable_get('date_popup_authored_enabled_' . $form['type']['#value'], 1)) {
+  if (strstr($form_id, '_node_form') !== FALSE) {
+    // Date Popup Authored should modify the node submission form only if the
+    // user is allowed to modify the authoring information and it's enabled.
+    if (!($form['author']['#access'] && variable_get('date_popup_authored_enabled_' . $form['type']['#value'], 1))) {
+      return;
+    }
+
     $form['author']['date']['#type'] = 'date_popup';
 
     // Set options specific to date_popup.
