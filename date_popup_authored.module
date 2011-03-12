@@ -115,7 +115,13 @@ function date_popup_authored_form_node_type_form_alter(&$form, &$form_state, $fo
 function date_popup_authored_form_alter(&$form, $form_state, $form_id) {
 
   // Replaces default Authored on field with a datepicker on node submission forms.
-  if (strstr($form_id, '_node_form') !== FALSE  && variable_get('date_popup_authored_enabled_' . $form['type']['#value'], 1)) {
+  if (strstr($form_id, '_node_form') !== FALSE) {
+    // Date Popup Authored should modify the node submission form only if the
+    // user is allowed to modify the authoring information and it's enabled.
+    if (!($form['author']['#access'] && variable_get('date_popup_authored_enabled_' . $form['type']['#value'], 1))) {
+      return;
+    }
+
     $form['author']['date']['#type'] = 'date_popup';
 
     // If there is a date already available, rewrite it to conform to

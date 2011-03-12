@@ -1,5 +1,9 @@
 Date Popup Authored Module 7.x
 
+Date Popup Authored 7.x-1.x-dev
+-------------------------------
+#1087616 by Mark Trapp: Post date resets on save if user can't administer nodes
+
 Date Popup Authored 7.x-1.1-beta1
 -------------------------------
 #1012288 by pillarsdotnet: Make Date Popup Authored work in PHP 5.2
