@@ -29,7 +29,7 @@ REQUIREMENTS
 ------------
 
 - Drupal 7
-- Date [1] 7.x-1.0-alpha2 or later
+- Date [1] 7.x-2.0-rc2 or later
 - Date Popup, part of the Date module
 
 [1] http://drupal.org/project/date
