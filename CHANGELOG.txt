@@ -1,6 +1,6 @@
 Date Popup Authored Module 6.x
 
-Date Popup Authored 6.x-1.x-dev
+Date Popup Authored 6.x-1.1-beta1
 -------------------------------
 #1087616 by Mark Trapp: Post date resets on save if user can't administer nodes
 #964462 by Mark Trapp: Provide better documentation
