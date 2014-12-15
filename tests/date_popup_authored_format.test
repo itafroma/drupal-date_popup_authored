@@ -151,4 +151,37 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
     }
   }
 
+  /**
+   * Tests variable cleanup after a content type is removed.
+   */
+  function testVariableCleanupAfterNodeTypeRemoval() {
+    $node_type_name = strtolower($this->randomName(8) . '_test');
+    $node_type = $this->drupalCreateContentType(array('name' => $node_type_name, 'type' => $node_type_name));
+
+    variable_set('date_popup_authored_enabled_' . $node_type_name, 'foo');
+    variable_set('date_popup_authored_format_' . $node_type_name, 'foo');
+    variable_set('date_popup_authored_year_range_' . $node_type_name, 'foo');
+
+    node_type_delete($node_type_name);
+
+    $this->assertNull(variable_get('date_popup_authored_enabled_' . $node_type_name));
+    $this->assertNull(variable_get('date_popup_authored_format_' . $node_type_name));
+    $this->assertNull(variable_get('date_popup_authored_year_range_' . $node_type_name));
+  }
+
+  /**
+   * Tests variable cleanup after Date Popup Authored is uninstalled.
+   */
+  function testVariableCleanupAfterUninstall() {
+    variable_set('date_popup_authored_enabled_page', 'foo');
+    variable_set('date_popup_authored_format_page', 'foo');
+    variable_set('date_popup_authored_year_range_page', 'foo');
+
+    module_disable(array('date_popup_authored'));
+    drupal_uninstall_modules(array('date_popup_authored'));
+
+    $this->assertNull(variable_get('date_popup_authored_enabled_page'));
+    $this->assertNull(variable_get('date_popup_authored_format_page'));
+    $this->assertNull(variable_get('date_popup_authored_year_range_page'));
+  }
 }
