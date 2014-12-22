@@ -1,5 +1,9 @@
 Date Popup Authored Module 7.x
 
+Date Popup Authored 7.x-1.x-dev
+-------------------------------
+Add Travis CI support.
+
 Date Popup Authored 7.x-1.2-beta1
 ---------------------------------
 #2329773 by amagdy, Mark Trapp: Clean up variables when no longer in use

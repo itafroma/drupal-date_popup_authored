@@ -1,5 +1,7 @@
 # Date Popup Authored
 
+[![Build Status](https://travis-ci.org/itafroma/drupal-date_popup_authored.svg?branch=7.x-1.x)](https://travis-ci.org/itafroma/drupal-date_popup_authored)
+
 ## Introduction
 
 Date Popup Authored provides a jQuery UI datepicker for the "Authored on" date field found on node submission forms.
