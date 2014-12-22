@@ -32,12 +32,18 @@ install:
   - composer global require drush/drush:6.*
 
 before_script:
-  # navigate out of module directory to prevent blown stack by recursive module lookup
+
+  # Sendmail support.
+  - if [[ "$TRAVIS_PHP_VERSION" != hhvm* ]]; then echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi
+  # hhvm ignores sendmail_path and hhvm.mail.sendmail_path settings presently...
+  - if [[ "$TRAVIS_PHP_VERSION" == hhvm* ]]; then sudo ln -s /bin/true /usr/local/bin/sendmail; fi
+
+   # navigate out of module directory to prevent blown stack by recursive module lookup
   - cd ../..
 
   # create new site, stubbing sendmail path with true to prevent delivery errors and manually resolving drush path
   - mysql -e 'create database date_popup_authored_test'
-  - php -d sendmail_path=`which true` ~/.composer/vendor/bin/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/date_popup_authored_test --enable=simpletest date_popup_authored_test
+  - php ~/.composer/vendor/bin/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/date_popup_authored_test --enable=simpletest date_popup_authored_test
 
   # reference and enable travis_ci_drupal_module_example in build site
   - ln -s $(readlink -e $(cd -)) date_popup_authored_test/drupal/sites/all/modules/date_popup_authored
