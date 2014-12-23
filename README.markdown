@@ -40,9 +40,9 @@ So, if you care about the time a post is authored, make sure you allow the user 
 
 The functionality this module provides is being considered for core inclusion:
 
-- [#1835016: Polyfill date input type][1]
-- [#471942-30: Use Date Popup on 'Authored on' field][2]
-- [#504524: Extend Authored on field with jQuery UI Date Picker][3]
+- [#1835016: Polyfill date input type][5]
+- [#471942-30: Use Date Popup on 'Authored on' field][6]
+- [#504524: Extend Authored on field with jQuery UI Date Picker][7]
 
 Because of this, there will hopefully be no Drupal 8 version.
 
@@ -52,14 +52,14 @@ Because of this, there will hopefully be no Drupal 8 version.
 
 ## Contact
 
-The current maintainer is [Mark Trapp][5] ([Drupal.org profile][6]).
+The current maintainer is [Mark Trapp][8] ([Drupal.org profile][9]).
 
 [8]: http://marktrapp.com "Mark Trapp's website"
 [9]: https://drupal.org/u/mark-trapp "Mark Trapp's Drupal.org profile"
 
 ## Acknowledgments
 
-Date Popup Authored was inspired by the hacks provided by [brice][7] and [Rob Loach][8] in the Date module issue, "[Use Date Popup on 'Authored on' field][9]." It contains additional fixes to account for problems found in their solution, new configuration options, Drupal 7 support, and a full test suite.
+Date Popup Authored was inspired by the hacks provided by [brice][10] and [Rob Loach][11] in the Date module issue, "[Use Date Popup on 'Authored on' field][12]." It contains additional fixes to account for problems found in their solution, new configuration options, Drupal 7 support, and a full test suite.
 
 [10]: https://drupal.org/user/446296 "brice's Drupal.org profile"
 [11]: https://drupal.org/u/robloach "Rob Loach's Drupal.org profile"
@@ -67,10 +67,10 @@ Date Popup Authored was inspired by the hacks provided by [brice][7] and [Rob Lo
 
 ## More information
 
-- For additional documentation, see the [online Drupal handbook][10].
-- For a list of security announcements, see the [*Security advisories* page][11] (available as an RSS feed). This page also describes how to subscribe to these announcements via e-mail.
-- For information about the Drupal security process, or to find out how to report a potential security issue to the Drupal security team, see the [*Security team* page][12].
-- For information about the wide range of available support options, see the [*Support* page][13].
+- For additional documentation, see the [online Drupal handbook][13].
+- For a list of security announcements, see the [*Security advisories* page][14] (available as an RSS feed). This page also describes how to subscribe to these announcements via e-mail.
+- For information about the Drupal security process, or to find out how to report a potential security issue to the Drupal security team, see the [*Security team* page][15].
+- For information about the wide range of available support options, see the [*Support* page][16].
 
 [13]: https://drupal.org/handbook "Drupal Handbook"
 [14]: https://drupal.org/security "Drupal security advisories"
