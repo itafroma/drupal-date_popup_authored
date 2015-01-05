@@ -12,7 +12,7 @@
       $('fieldset#edit-date-popup-authored', context).drupalSetSummary(function() {
         var vals = [];
         if ($('#edit-date-popup-authored-enabled', context).is(':checked')) {
-          vals.unshift(Drupal.t('Enabled'));
+          vals.push(Drupal.t('Enabled'));
 
           // Date format.
           var format = $('.form-item-date-popup-authored-format select option:selected', context).text();
@@ -23,7 +23,7 @@
           vals.push(Drupal.t('Display &#x00B1;@range years', {'@range': range}));
         }
         else {
-          vals.unshift(Drupal.t('Disabled'));
+          vals.push(Drupal.t('Disabled'));
         }
         return vals.join(', ');
       });
