@@ -72,8 +72,6 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
    *  Optionally, a timezone to test with.
    */
   function checkAuthoredOnWithFormat($format, $node, $timezone = '') {
-    debug('Format: ' . $format);
-
     $timezone = !empty($timezone) ? $timezone : date_default_timezone_object();
 
     // Extract the date and time format parts
@@ -83,8 +81,6 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
 
     // Generate a DateObject object for the node date.
     $node_date = DateObject::createFromFormat('Y-m-d H:i:s O', $node->date, $timezone);
-    debug($node_date->format($date_format), 'Node date');
-    debug($node_date->format($time_format), 'Node time');
 
     // Extract the date and time parts as seen on the node submission form
     $default_format = variable_get('date_popup_authored_format_page', variable_get('date_format_short', 'm/d/Y - H:i'));
@@ -96,11 +92,9 @@ class DatePopupAuthoredTestCase extends PageEditTestCase {
     $submitted_date_string = '';
     foreach ($elements as $element) {
       if ((string) $element['name'] === 'date[date]') {
-        debug((string) $element['value'], 'Submitted date');
         $this->assertIdentical($node_date->format($date_format), (string) $element['value'], 'The node date and submission form have identical dates.');
       }
       elseif ((string) $element['name'] === 'date[time]') {
-        debug((string) $element['value'], 'Submitted time');
         $this->assertIdentical($node_date->format($time_format), (string) $element['value'], 'The node date and submission form have identical times.');
       }
     }
